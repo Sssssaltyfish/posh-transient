@@ -1,5 +1,7 @@
 [package]
 name = "posh-transient"
+description = "A simple command-line tool that automatically adds transient-prompt to your oh-my-posh configuration."
+
 authors = ["SssssaltyIgna"]
 readme = "README.md"
 license-file = "LICENSE"
