@@ -1,5 +1,6 @@
 use anyhow::bail;
 use clap::Parser;
+use path_absolutize::Absolutize;
 use posh_transient::alter_omp_json;
 
 use std::ffi::OsStr;
@@ -40,8 +41,7 @@ fn main() -> anyhow::Result<()> {
     } else {
         bail!("Not a valid destination, but how can it be???")
     };
-    fs::File::create(&target_filepath)?;
-    let target_filepath = target_filepath.canonicalize()?;
+    let target_filepath = target_filepath.absolutize()?;
 
     if target_filepath.is_file() {
         println!("{}", target_filepath.display());
