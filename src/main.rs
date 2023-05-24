@@ -40,6 +40,7 @@ fn main() -> anyhow::Result<()> {
     } else {
         bail!("Not a valid destination, but how can it be???")
     };
+    fs::File::create(&target_filepath)?;
     let target_filepath = target_filepath.canonicalize()?;
 
     if target_filepath.is_file() {
